@@ -1,5 +1,6 @@
 package com.sfc;
 
+import com.sfc.redistest.CASRunner;
 import com.sfc.redistest.ConcurrentBase;
 import com.sfc.redistest.GetAndSetRunner;
 import com.sfc.redistest.INCRRunner;
@@ -30,6 +31,10 @@ public class App
         System.out.println("Get and Set test start");
         ConcurrentBase.runTest(REQUEST_TOTAL, THREAD_TOTAL, jedisPool, new GetAndSetRunner());
         System.out.println("Get and Set test end");
+
+        System.out.println("Compare and Set test start");
+        ConcurrentBase.runTest(REQUEST_TOTAL, THREAD_TOTAL, jedisPool, new CASRunner());
+        System.out.println("Compare and Set test end");
 
         jedisPool.close();
 

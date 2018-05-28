@@ -8,7 +8,7 @@ public class INCRRunner implements Runner {
 
     @Override
     public void process(Jedis jedis, String KEY, AtomicInteger counter) {
-        jedis.incr(KEY);
         counter.incrementAndGet();
+        jedis.incr(KEY);
     }
 }
