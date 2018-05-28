@@ -9,6 +9,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class CASRunner implements Runner{
 
+    private static final Random random = new Random();
+
     @Override
     public void process(Jedis jedis, String KEY, AtomicInteger counter) throws InterruptedException {
 
@@ -29,7 +31,7 @@ public class CASRunner implements Runner{
                 return;
             }
 
-            Thread.sleep(20, new Random().nextInt(900));
+            Thread.sleep(20, random.nextInt(900));
         }
     }
 }
