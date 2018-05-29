@@ -1,9 +1,6 @@
 package com.sfc;
 
-import com.sfc.redistest.CASRunner;
-import com.sfc.redistest.ConcurrentBase;
-import com.sfc.redistest.GetAndSetRunner;
-import com.sfc.redistest.INCRRunner;
+import com.sfc.redistest.*;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
@@ -35,6 +32,10 @@ public class App
         System.out.println("Compare and Set test start");
         ConcurrentBase.runTest(REQUEST_TOTAL, THREAD_TOTAL, jedisPool, new CASRunner());
         System.out.println("Compare and Set test end");
+
+        System.out.println("Lock test start");
+        ConcurrentBase.runTest(REQUEST_TOTAL, THREAD_TOTAL, jedisPool, new LockRunner());
+        System.out.println("Lock test end");
 
         jedisPool.close();
 

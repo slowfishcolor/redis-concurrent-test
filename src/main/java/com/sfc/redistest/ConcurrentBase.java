@@ -37,7 +37,7 @@ public class ConcurrentBase {
             });
         }
 
-        countDownLatch.await(20, TimeUnit.SECONDS);
+        countDownLatch.await(30, TimeUnit.SECONDS);
         threadPool.shutdown();
 
         long endTime = System.currentTimeMillis();
