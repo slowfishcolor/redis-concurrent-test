@@ -10,7 +10,7 @@ import redis.clients.jedis.JedisPoolConfig;
  */
 public class App 
 {
-    private static int THREAD_TOTAL = 50;
+    private static int THREAD_TOTAL = 100;
 
     private static int REQUEST_TOTAL = 10000;
 
